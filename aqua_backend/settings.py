@@ -57,11 +57,14 @@ DATABASES = {
     }
 }
 
+# Vercel functions cannot write to the bundled SQLite file.
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
 ]
 
 LANGUAGE_CODE = "en-us"
